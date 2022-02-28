@@ -1,0 +1,68 @@
+# author: Tahmid Hassan Talukdar 
+# ECE, Clemson University | ttalukd@clemson.edu
+#
+
+selectall;
+deleteall;
+
+setglobalmonitor("frequency points",150);
+period1 = 0.317e-6;
+
+for (i=1:50)
+{
+addrect; 
+set("material", "Si (Silicon) - Palik");
+set("name", "superb");
+set("x span", period1);
+set("y span", 0.5e-6);
+set("z span", 0.22e-6); 
+set("x", -10e-6+i*period1*2);
+set("y",0);
+set("z",0);
+
+addrect; 
+set("material", "Si (Silicon) - Palik");
+set("name", "superb");  
+set("x span", period1);
+set("y span", 0.45e-6);
+set("z span", 0.22e-6); 
+set("x", -10e-6+period1+i*period1*2);
+set("y",0);
+set("z",0);
+}
+
+
+addfdtd;
+set("x min", -15e-6);
+set("x max", 20e-6);
+set("y min", -5e-6);
+set("y max", 5e-6);
+set("z min", -5e-6);
+set("z max", 5e-6);
+  
+addmode;
+set("x", -10e-6);
+set("y", 0);
+set("z", 0); 
+set("wavelength start", 1.5e-6);
+set("wavelength stop", 1.6e-6);
+
+
+# add input waveguide 
+addrect;
+set("name", "input waveguide");
+set("material", "Si (Silicon) - Palik");
+set("x min", -16e-6);
+set("x max", -10e-6+period1*2);
+set("y",0);
+set("z", 0);
+set("y span", 0.5e-6);
+set("z span", 0.22e-6); 
+
+addprofile;
+set("monitor type", "2D X-normal");
+set("x", 18e-6);
+set("y min", -2e-6);
+set("y max", 2e-6);
+set("z min", -2e-6);
+set("z max", 2e-6);
