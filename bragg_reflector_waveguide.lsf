@@ -1,6 +1,6 @@
 # author: Tahmid Hassan Talukdar 
 # ECE, Clemson University | ttalukd@clemson.edu
-#
+# todo: add structure group 
 
 selectall;
 deleteall;
@@ -12,7 +12,7 @@ for (i=1:50)
 {
 addrect; 
 set("material", "Si (Silicon) - Palik");
-set("name", "superb");
+set("name", "bragg");
 set("x span", period1);
 set("y span", 0.5e-6);
 set("z span", 0.22e-6); 
@@ -22,7 +22,7 @@ set("z",0);
 
 addrect; 
 set("material", "Si (Silicon) - Palik");
-set("name", "superb");  
+set("name", "bragg");  
 set("x span", period1);
 set("y span", 0.45e-6);
 set("z span", 0.22e-6); 
